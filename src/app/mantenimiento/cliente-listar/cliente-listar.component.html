@@ -1,10 +1,16 @@
 <form>
-    <div class="row">
+    <div class="row space">
+        <div class="col-8">
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" placeholder="Escriba el nombre a buscar">
+                <button class="btn btn-primary" type="button">Buscar</button>
+            </div>
+        </div>
         <div class="col-2">
-            
+            <button class="btn btn-primary" routerLink="/mantenimiento/cliente/entidad">Nuevo</button>
         </div>
     </div>
-    <div class="row">
+    <div class="row space">
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -21,12 +27,25 @@
             </thead>
             <tbody>
                 <tr class="table-dark" *ngFor="let cliente of lstClientes">
-                    <td>{{cliente.id_cliente}}</td>
-                    <td>{{cliente.id_documento_identidad}}</td>
-                    <td>{{cliente.nro_documento}}</td>
+                    <td>{{cliente.idCliente}}</td>
+                    <td>{{cliente.documentoIdentidad.abreviatura}}</td>
+                    <td>{{cliente.nroDocumento}}</td>
                     <td>{{cliente.nombre}}</td>
                     <td>{{cliente.apellido}}</td>
                     <td>{{cliente.email}}</td>
+                    <td>
+                        <img src="../../../assets/images/check.png" width="20px" *ngIf="cliente.activo">
+                        <img src="../../../assets/images/mistake.png" width="20px" *ngIf="!cliente.activo">
+                    </td>
+                    <td>
+                        <img src="../../../assets/images/check.png" width="20px" *ngIf="cliente.eliminado">
+                        <img src="../../../assets/images/mistake.png" width="20px" *ngIf="!cliente.eliminado">
+                    </td>
+                    <td>
+                        <button class="btn" [routerLink]="['/mantenimiento/cliente/entidad/' + cliente.idCliente]">
+                            <img src="../../../assets/images/lupa.png" width="20px">
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>

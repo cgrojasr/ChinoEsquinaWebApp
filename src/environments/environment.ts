@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  url_api: 'http://localhost:8080/'
+  //Java
+  url_api_java: 'http://localhost:8080/',
+  //NET Core
+  url_api_net: 'http://localhost:5227/' 
 };
 
 /*

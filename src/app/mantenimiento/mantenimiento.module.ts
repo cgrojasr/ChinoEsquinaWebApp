@@ -4,6 +4,7 @@ import { ClienteGestionarComponent } from './cliente-gestionar/cliente-gestionar
 import { ClienteListarComponent } from './cliente-listar/cliente-listar.component';
 import { HomeComponent } from './home/home.component';
 import { MantenimientoRoutingModule } from './mantenimiento-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { MantenimientoRoutingModule } from './mantenimiento-routing.module';
   ],
   imports: [
     CommonModule,
-    MantenimientoRoutingModule
+    MantenimientoRoutingModule,
+    FormsModule
   ]
 })
 export class MantenimientoModule { }

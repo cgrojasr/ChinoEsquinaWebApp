@@ -17,14 +17,18 @@ export class ClienteListarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.findALl();
+    this.listarTodo_Cliente();
   }
 
-  findALl(): void {
-    this.clienteService.findAll().subscribe(
+  listarTodo_Cliente(): void {
+    this.clienteService.listarTodo().subscribe(
       response => {
         this.lstClientes = response
       }
     );
+  }
+
+  onClick_Lupa(): void {
+    
   }
 }

@@ -14,8 +14,17 @@ export class ClienteService {
     private http: HttpClient
   ) { }
 
-  findAll(): Observable<Cliente[]> {
-    console.log("Estoy en el servicio");
-    return this.http.get<Cliente[]>(`${environment.url_api}cliente/findAll`);
+  listarTodo(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${environment.url_api_java}cliente`);
+  }
+
+  buscarPorId(idCliente: number): Observable<Cliente> {
+    return this.http.get<Cliente>(`${environment.url_api_java}cliente/${idCliente}`);
+  }
+
+  registrar(objCliente: Cliente): Observable<Cliente> {
+    objCliente.eliminado = false;
+    console.log(objCliente);
+    return this.http.post<Cliente>(`${environment.url_api_java}cliente`, objCliente);
   }
 }
