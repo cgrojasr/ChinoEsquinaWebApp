@@ -1,0 +1,16 @@
+<div class="row">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let promocion of lstPromocion">
+                <td>{{promocion.idPromocion}}</td>
+                <td>{{promocion.nombre}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

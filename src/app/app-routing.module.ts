@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'mantenimiento',
     loadChildren: ()=>import('./mantenimiento/mantenimiento.module').then(m=>m.MantenimientoModule)
+  },
+  {
+    path: 'fidelizacion',
+    loadChildren: ()=>import('./fidelizacion/fidelizacion.module').then(m=>m.FidelizacionModule)
   }
 ];
 
