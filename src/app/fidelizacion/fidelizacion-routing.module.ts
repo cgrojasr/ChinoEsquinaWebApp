@@ -24,6 +24,10 @@ const routes: Routes = [
       {
         path: 'promocion/gestionar',
         component: PromocionGestionarComponent
+      },
+      {
+        path: 'promocion/gestionar/:id',
+        component: PromocionGestionarComponent
       }
     ]
   }

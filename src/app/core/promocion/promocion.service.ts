@@ -13,7 +13,7 @@ export class PromocionService {
     private http: HttpClient
   ) { }
 
-  listar(): Observable<Promocion[]> {
-    return this.http.get<Promocion[]>(`${environment.url_api_java}promocion`);
+  listar(descripcion:string): Observable<Promocion[]> {
+    return this.http.get<Promocion[]>(`${environment.url_api_java}promocion/filtros?descripcion=${descripcion}`);
   }
 }

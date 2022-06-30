@@ -1,16 +1,46 @@
-<div class="row">
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let promocion of lstPromocion">
-                <td>{{promocion.idPromocion}}</td>
-                <td>{{promocion.nombre}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<form #form="ngForm">
+    <div class="row space">
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Buscar por nombre o descripción" name="txtBuscar" [(ngModel)]="strBuscar">
+                <button class="btn btn-primary" type="submit" id="button-addon2" (click)="onClick_Buscar()" (keydown.enter)="onClick_Buscar()">Buscar</button>
+              </div>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-primary" routerLink="/fidelizacion/promocion/gestionar">Nueva Promoción</button>
+        </div>
+    </div>
+    <div class="row space">
+        <table class="table table-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Inicio</th>
+                    <th scope="col">Fin</th>
+                    <th scope="col">Activo</th>
+                    <th scope="col">Edit.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let promocion of lstPromocion">
+                    <th scope="row">{{promocion.idPromocion}}</th>
+                    <td>{{promocion.nombre}}</td>
+                    <td>{{promocion.descripcion}}</td>
+                    <td>{{promocion.fechaInicio | date:'d/M/yyyy'}}</td>
+                    <td>{{promocion.fechaFinal | date:'d/M/yyyy'}}</td>
+                    <td>
+                        <img src="../../../assets/images/check.png" width="20px" *ngIf="promocion.activo">
+                        <img src="../../../assets/images/mistake.png" width="20px" *ngIf="!promocion.activo">
+                    </td>
+                    <td>
+                        <button class="btn" [routerLink]="['/fidelizacion/promocion/gestionar/' + promocion.idPromocion]">
+                            <img src="../../../assets/images/lupa.png" width="20px">
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+</form>

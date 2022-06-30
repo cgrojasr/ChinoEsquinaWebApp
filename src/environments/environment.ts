@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   //Java
-  //url_api_java: 'http://localhost:8080/',
-  url_api_java: 'http://3.133.105.16ng :8080/',
+  url_api_java: 'http://localhost:8080/',
+  //url_api_java: 'http://3.133.105.16ng :8080/',
   //NET Core
   //url_api_net: 'http://localhost:5227/' 
   url_api_net: 'http://52.14.132.180:5000/api/'

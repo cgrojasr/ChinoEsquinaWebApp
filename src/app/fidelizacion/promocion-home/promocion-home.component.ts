@@ -10,6 +10,7 @@ import { Promocion } from 'src/app/models/promocion';
 export class PromocionHomeComponent implements OnInit {
 
   lstPromocion: Promocion[];
+  strBuscar: string = "";
 
   constructor(
     private promocionService: PromocionService
@@ -18,15 +19,18 @@ export class PromocionHomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listar();
+    this.listar("");
   }
 
-  listar(): void{
-    this.promocionService.listar().subscribe(
+  listar(descripcion:string): void{
+    this.promocionService.listar(descripcion).subscribe(
       response => {
         this.lstPromocion = response
       }
     )
   }
 
+  onClick_Buscar():void {
+    this.listar(this.strBuscar);
+  }
 }
