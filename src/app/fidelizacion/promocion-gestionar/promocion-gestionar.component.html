@@ -1,1 +1,43 @@
-<p>promocion-gestionar works!</p>
+<form #form="ngForm">
+    <div class="row space">
+        <label for="txtNombre" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-3">
+          <input name="txtNombre" type="text" class="form-control" id="txtNombre" [(ngModel)]="objPromocion.nombre">
+        </div>
+    </div>
+    <div class="row space">
+        <label for="txtDescripcion" class="col-sm-2 form-label">Descripción</label>
+        <div class="col-3">
+            <textarea name="txtDescripcion" class="form-control" id="txtDescripcion" rows="3" [(ngModel)]="objPromocion.descripcion"></textarea>
+        </div>
+    </div>
+    <div class="row space">
+        <label for="txtFechaInicio" class="col-sm-2 col-form-label">Fecha Inicio</label>
+        <div class="col-sm-3">
+          <input name="txtFechaInicio" type="date" class="form-control" id="txtFechaInicio" [ngModel]="objPromocion.fechaInicio | date:'yyyy-MM-dd'">
+        </div>
+    </div>
+    <div class="row space">
+        <label for="txtFechaFinal" class="col-sm-2 col-form-label">Fecha Final</label>
+        <div class="col-sm-3">
+          <input name="txtFechaFinal" type="date" class="form-control" id="txtFechaFinal" [ngModel]="objPromocion.fechaFinal | date:'yyyy-MM-dd'">
+        </div>
+    </div>
+    <div class="row space">
+        <div class="col-2">
+            <div class="form-check">
+                <input name="cbActivo" class="form-check-input" type="checkbox" value="false" id="cbActivo" [(ngModel)]="objPromocion.activo">
+                <label class="form-check-label" for="cbActivo">
+                    Activo
+                </label>
+              </div>
+        </div>
+    </div>
+    <div class="row space">
+        <div class="col-2">
+            <div *ngIf="idPromocion == 0"><button type="button" class="btn btn-primary" (click)="onclick_registrar()">Regitrar</button></div>
+            <div *ngIf="idPromocion != 0"><button type="button" class="btn btn-primary" (click)="onclick_actualizar()">Actualizar</button></div>
+        </div>
+    </div>
+    {{ objPromocion.nombre}}
+</form>

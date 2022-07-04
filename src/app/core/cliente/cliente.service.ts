@@ -24,7 +24,6 @@ export class ClienteService {
 
   registrar(objCliente: Cliente): Observable<Cliente> {
     objCliente.eliminado = false;
-    console.log(objCliente);
     return this.http.post<Cliente>(`${environment.url_api_java}cliente`, objCliente);
   }
 }

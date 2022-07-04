@@ -16,4 +16,16 @@ export class PromocionService {
   listar(descripcion:string): Observable<Promocion[]> {
     return this.http.get<Promocion[]>(`${environment.url_api_java}promocion/filtros?descripcion=${descripcion}`);
   }
+
+  registrar(objPromocion:Promocion): Observable<Promocion> { 
+    return this.http.post<Promocion>(`${environment.url_api_java}promocion`, objPromocion);
+  }
+
+  buscarPorId(idPromocion: number): Observable<Promocion> {   
+    return this.http.get<Promocion>(`${environment.url_api_java}promocion/${idPromocion}`);
+  }
+
+  actualizar(objPromocion: Promocion): Observable<Promocion> { 
+    return this.http.put<Promocion>(`${environment.url_api_java}promocion`, objPromocion);
+  }
 }
